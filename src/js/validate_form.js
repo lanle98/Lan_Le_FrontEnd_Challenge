@@ -27,7 +27,7 @@ let validateForm = e => {
 
 
 
-
+    //if required fields are empty
     if (validate_fname == '' || validate_lname == '' || validate_email == '') {
 
         validate_fname == '' ? validate.innerHTML += '<li>Your first name is empty</li>' : '';
@@ -48,20 +48,39 @@ let validateForm = e => {
 
 }
 
-let sendForm = (fname, lname, email, homeowner) => {
-    console.log(fname, lname, email, homeowner, buyingWhen.value)
+//sending form function
+let sendForm = (firstname, lastname, email_value, homeowner) => {
+    console.log(firstname, lastname, email_value, homeowner, buyingWhen.value)
 
 
-    let url = `/send.php`,
+    //reset form
+    fname.value = ''
+    lname.value = ''
+    email.value = ''
+    homeowner.value = ''
+    homeOwnerYes.checked = ''
+    homeOwnerNo.checked = ''
+
+
+
+
+    let url = `/dummy.php`,
         formData = new FormData();
 
 
-    formData.append("fname", fname);
-    formData.append("lname", lname);
-    formData.append("email", email);
+    // create body for POST
+    formData.append("fname", firstname);
+    formData.append("lname", lastname);
+    formData.append("email", email_value);
     formData.append("homeowner", homeowner);
     formData.append("buyingWhen", buyingWhen.value);
+
+
+    //sending messgae
     validate.innerHTML = "<li>Thank you for your subscription</li>"
+
+
+    //fetch data from server
     fetch(url, {
         method: "POST",
         body: formData
@@ -75,5 +94,7 @@ let sendForm = (fname, lname, email, homeowner) => {
         .catch(err => console.log(err))
 }
 
+
+//button click event
 button.addEventListener('click', validateForm)
 
