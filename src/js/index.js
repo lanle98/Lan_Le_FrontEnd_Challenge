@@ -20,7 +20,7 @@ let parseData = (data) => {
 
     //check if the api is working or not
     if (Note) {
-        display_today.innerHTML = "Sorry the data is unavailable"
+        display_today.innerHTML = "<li>Sorry the data is unavailable at a moment</li>"
     } else {
         let today = Object.keys(data['Time Series (Daily)'])[0],
             yesterday = Object.keys(data['Time Series (Daily)'])[1],
