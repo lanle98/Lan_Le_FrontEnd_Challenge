@@ -1,3 +1,11 @@
+### Getting started
+* Clone the Repo ```git clone```
+* Install packages by typing ``` npm install``` in terminal
+* Run by typing ``` npm start```
+* In the Browser go ``` localhost:8080```
+
+
+
 # Front End Developer Challenge 2020 #
 
 Welcome to the Wise Publishing Front End Developer Challenge!
