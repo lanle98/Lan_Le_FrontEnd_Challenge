@@ -1,4 +1,6 @@
 require('../css/main.css')
+require('./validate_form')
+
 
 let form = document.querySelector('.form')
 
@@ -14,9 +16,10 @@ let stickyForm = () => {
 let parseData = (data) => {
     let display_today = document.querySelector('.today')
 
+    const { Note } = data
 
     //check if the api is working or not
-    if (data["Note"]) {
+    if (Note) {
         display_today.innerHTML = "Sorry the data is unavailable"
     } else {
         let today = Object.keys(data['Time Series (Daily)'])[0],

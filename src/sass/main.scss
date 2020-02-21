@@ -35,6 +35,16 @@ h2{
     font-size: 2rem;
 }
 
+ul{
+    padding: 0;
+}
+
+li{
+    list-style-type: none;
+    text-align: center;
+    
+}
+
 header{
     top: 0;
     position: sticky;
@@ -51,10 +61,7 @@ header{
 
 .today{
     padding: 0;
-    li{
-        list-style-type: none;
-        text-align: center;
-    }
+    
 }
 
 
