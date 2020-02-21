@@ -12,15 +12,25 @@ let stickyForm = () => {
 
 //parse data from fetch api
 let parseData = (data) => {
-    let today = Object.keys(data['Time Series (Daily)'])[0],
-        yesterday = Object.keys(data['Time Series (Daily)'])[1],
-        close_today = data['Time Series (Daily)'][today]['4. close'],
-        close_yesterday = data['Time Series (Daily)'][yesterday]['4. close'],
-        symbol = data['Meta Data']['2. Symbol'],
-        display_today = document.querySelector('.today')
+    let display_today = document.querySelector('.today')
 
 
-    display_today.innerHTML += `<li>${UpOrDown(close_today, close_yesterday)}${symbol}: ${close_today}</li>`
+    //check if the api is working or not
+    if (data["Note"]) {
+        display_today.innerHTML = "Sorry the data is unavailable"
+    } else {
+        let today = Object.keys(data['Time Series (Daily)'])[0],
+            yesterday = Object.keys(data['Time Series (Daily)'])[1],
+            close_today = data['Time Series (Daily)'][today]['4. close'],
+            close_yesterday = data['Time Series (Daily)'][yesterday]['4. close'],
+            symbol = data['Meta Data']['2. Symbol']
+
+
+        //add data to ul tag
+        display_today.innerHTML += `<li>${UpOrDown(close_today, close_yesterday)}${symbol}: ${close_today}</li>`
+    }
+
+
 
 
 
