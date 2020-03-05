@@ -7,6 +7,7 @@ body{
     margin: 0;
     background: $white;
     font-family: 'PT Serif', serif;
+  
     
 }
 
@@ -50,12 +51,14 @@ header{
     top: 0;
     position: sticky;
    background: #ffff;
-    margin: 0 1rem;
+  
     padding: 2rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
     border-bottom: 1px solid $gray;
+    grid-column: 1/4;
+    top: 0;
   
     
 }
@@ -66,19 +69,16 @@ header{
 }
 
 
-
-
-
 .container{
-    margin: 4rem;
+    padding: 1rem;
 }
 
+
+
 .form{
-    // padding: 3rem;
     background: white;
-    box-shadow: none;
-    transition: .5s;
-    top:20%
+    padding: 1rem;
+   
 }
 
 form{
@@ -87,6 +87,8 @@ form{
     display: flex;
     flex-direction: column;
     justify-content: center;
+  
+    
 
    
 
@@ -135,9 +137,31 @@ form{
 }
 
 @media only screen and (min-width: 768px) {
+    body{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
     header{
         flex-direction: row;
         justify-content: space-between;
+        margin: 0 1rem;
+    }
+
+
+
+    
+    .container{
+    margin: 4rem;
+    grid-column: 1/3;
+   
+    }
+
+    .form{
+        grid-column: 3/4;
+        top: 30%;
+        position: sticky;
+        height: 500px;
+        overflow: scroll;
     }
 
     .today{
@@ -148,33 +172,14 @@ form{
             margin: 1rem;
         }
     }
-    .container{
-        display: grid;
-        grid-template-columns: 6fr 5fr;
-        grid-gap: 30px;
-      
-    }
-    article{
-        display: grid;
-        grid-template-columns: 6fr;
-
-
-    }
+    
+   
 
     .form{
-        padding: 3rem;
+        padding: 1rem;
     }
 
-    .sticky{
-        position: fixed;
-        top: 25%;
-       width: 30%;
-       height: 50%;
-       overflow: scroll;
-        right: 4%;
-        box-shadow: 10px 10px 43px 0px rgba(0,0,0,0.15);
-        
-    }
+   
 
     
     

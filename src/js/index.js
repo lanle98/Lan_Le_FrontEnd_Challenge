@@ -2,7 +2,8 @@ require('../css/main.css')
 require('./validate_form')
 
 
-let form = document.querySelector('.form')
+
+// let form = document.querySelector('.form')
 
 
 // add sticky class
@@ -52,20 +53,18 @@ let UpOrDown = (today, yesterday) => {
 
 
 //window on scroll enable sticky form
-window.onscroll = function () {
-    stickyForm()
-}
+// window.onscroll = function () {
+//     stickyForm()
+// }
 
 
 //fetch data
-fetch('https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=MSFT&apikey=JQ1LE8WZCWJRAMXL')
-    .then(res => res.json())
-    .then(data => parseData(data))
+let symbol = ['MSFT', 'GOOGL', 'BTCUSD']
 
-fetch('https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=GOOGL&apikey=JQ1LE8WZCWJRAMXL')
-    .then(res => res.json())
-    .then(data => parseData(data))
+//looping
+for (let i = 0; i < symbol.length; i++) {
+    fetch(`https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=${symbol[i]}&apikey=JQ1LE8WZCWJRAMXL`)
+        .then(res => res.json())
+        .then(data => parseData(data))
+}
 
-fetch('https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=BTCUSD&apikey=JQ1LE8WZCWJRAMXL')
-    .then(res => res.json())
-    .then(data => parseData(data))
