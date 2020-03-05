@@ -3,16 +3,6 @@ require('./validate_form')
 
 
 
-// let form = document.querySelector('.form')
-
-
-// add sticky class
-let stickyForm = () => {
-
-    window.pageYOffset >= form.offsetTop ? form.classList.add('sticky') : form.classList.remove('sticky')
-}
-
-
 //parse data from fetch api
 let parseData = (data) => {
     let display_today = document.querySelector('.today')
@@ -52,10 +42,7 @@ let UpOrDown = (today, yesterday) => {
 
 
 
-//window on scroll enable sticky form
-// window.onscroll = function () {
-//     stickyForm()
-// }
+
 
 
 //fetch data
